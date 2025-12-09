@@ -10,19 +10,19 @@ Learning about embeddings. Wanted to implement a simple version of Word2Vec from
 - Results are pretty bad due to the tiny corpus and minimal tuning, but that wasn't the goal of this project.
 
 ## Build Instructions
-2. you can run the build script:
+1. you can run the build script:
    ```bash
    chmod +x build.sh
    ./build.sh
    ```
-3. you can manually build it using cmake:
+2. you can manually build it using cmake:
    ```bash
    mkdir build
    cd build
    cmake ..
    make
    ```
-4. run the executable:
+3. run the executable:
    ```bash
    # in the build directory
    ./embdeddings
