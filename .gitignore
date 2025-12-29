@@ -13,6 +13,7 @@ build/
 # Precompiled Headers
 *.gch
 *.pch
+.cache/
 
 # Linker files
 *.ilk
