@@ -1,18 +1,23 @@
 cmake_minimum_required(VERSION 3.16)
-
-# Project name and language
 project(embeddings LANGUAGES CXX)
 
-# Specify the C++ standard
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Collect all .cpp files inside src/
-file(GLOB SOURCES "src/*.cpp")
+# ---- w2v library ----
+add_library(w2v STATIC
+    src/w2v/util.cpp
+)
 
-# Create an executable from those files
-add_executable(embeddings ${SOURCES})
+target_include_directories(w2v PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
+
+# ---- executable ----
+add_executable(embeddings
+    app/main.cpp
+)
+
+target_link_libraries(embeddings PRIVATE w2v)
+
 file(COPY data DESTINATION ${CMAKE_BINARY_DIR})
-
-# Add include directory for headers
-target_include_directories(embeddings PRIVATE include)
